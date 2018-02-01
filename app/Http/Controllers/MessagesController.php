@@ -15,4 +15,9 @@ class MessagesController extends Controller
         // Retornarlo a la vista
         return view('messages.show',['message' => $message]);
     }
+
+    // video 11: recibe datos de otra pagina
+    public function create(Request $request){       // le pdemos un request object
+        return 'creado';
+    }
 }

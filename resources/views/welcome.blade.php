@@ -16,6 +16,16 @@
         </nav>
     </div> 
 
+    {{--    --}}
+    <div class="row" >
+        <form action="/messages/create" method="post">
+            {{csrf_field()}}
+            <div class="form-group">
+                <input type="text" name="message" class="form-control" placeholder="Que ta pensando??">
+            </div>       
+        </form>
+    </div>
+
     {{--  video 8: desde aqui: cargan imagenes aleatorias  --}}
 <div class="row" >
         @forelse($messages as $message)
