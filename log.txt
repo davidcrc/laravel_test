@@ -1,2 +1,6 @@
 run:
-    php arisan serve
+    php artisan serve
+
+Comandos make:
+    - php artisan make:controller nombre : crea un nuevo controlador y todo lo demas
+    php artisan make:controller
