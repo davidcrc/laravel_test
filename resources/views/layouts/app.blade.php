@@ -7,8 +7,11 @@
 
         <title>@yield('title', 'Laravel by Laravel') </title>
 
+        {{-- Video 08: anandido bootstrap  --}}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        {{--  <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">  --}}
 
         <!-- Styles -->
         <style>
@@ -77,10 +80,15 @@
                 </div>
             @endif
 
-            {{--  Video 07 : Crear layouts   --}}
-            <div class="content">
+            {{--  Video 08 : Cambia a container   --}}           
+            <div class="container">
                @yield('content')
             </div>
         </div>
+
+        {{--  bootstrap - video 8  --}}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
+
+
 </html>

@@ -1,29 +1,34 @@
 @extends('layouts.app')     {{--  Creando layouts , extends, section  --}}
 
 @section('content')
-    <div class="title m-b-md">
-        Laravel by <a href="http://www.asiesps.com"> DaviD </a>
-    </div>
+    {{--  Video 08 : Cambia al proyecto real   --}}
 
-    {{--  Video 05  --}}
-    @if(isset($teacher))
-        <a> Profesor : {{$teacher}} </a>
-    @else
-            Profe a definir ...
-    @endif
+    <div class="jumbotron text-center">
+        <h1> Laravel DC </h1>
 
-    <div class="links">
-        
-        @foreach ($linkss as $link => $text)
-        <a href="{{ $link }}" > {{$text}} </a>
-        @endforeach
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/"> Home </a>
+                </li>
 
-    </div>
+            </ul>
+        </nav>
+    </div> 
 
+    {{--  video 8: desde aqui: cargan imagenes aleatorias  --}}
+<div class="row" >
+        @forelse($messages as $message)
+            <div class="col-6" >
+                <img class="img-thumbnail" src="{{ $message['image'] }}" > 
+                    <p class="card-text" >
+                        {{ $message['content'] }}
+                        <a href="/messages/{{ $message['image'] }}" > Leer mas </a> {{-- por q /mesages ?? --}}
+                        
+                    </p>
+            </div>
+        @empty
+            <p> No hay mensajes destacados </p>
+        @endforelse
+</div>
 @endsection
-
-{{-- 06 : Si no se define un yield('title'), entonces carga este de aqui  --}}
-
-{{--  @section('title')
-Laravel by David
-@endsection  --}}
