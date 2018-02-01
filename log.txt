@@ -2,5 +2,26 @@ run:
     php artisan serve
 
 Comandos make:
+    -- php artisan make:xxx --help
     - php artisan make:controller nombre : crea un nuevo controlador y todo lo demas
     php artisan make:controller
+
+    - php artisan make:migration nombre: Crear modificar, borrar tablas en la BD
+    //video 09
+    php artisan make:migration create_messages_table --create messages
+    php artisan migrate     (regenera todas las migraciones)
+
+    php artisan make:migration add_created_at_index_to_messages_table --table messages (modificar una tablas)
+    php artisan migrate
+
+    // vuelve atras la ultima migracion ejecutada
+    php artisan migrate:rollback
+
+    // borra todo
+    php artisan migrate:reset
+
+    // borra y luego carga todo
+    php artisan migrate:refresh
+
+Configurar Base de datos:
+    Modificar el archivo .env con tu configuracion

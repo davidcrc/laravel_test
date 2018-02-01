@@ -13,5 +13,3 @@
 
 // Video 06: PagesController@home (en / y /acerca)
 Route::get('/', "PagesController@home");
-
-Route::get('/acerca',"PagesController@about" );
