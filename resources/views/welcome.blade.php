@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel by David</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -79,15 +79,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel by DaviD
                 </div>
 
+                {{--  Video 05  --}}
+                @if(isset($teacher))
+                    <a> Profesor : {{$teacher}} </a>
+                @else
+                        Profe a definir ...
+                @endif
+
                 <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    
+                    @foreach ($linkss as $link => $text)
+                    <a href="{{ $link }}" > {{$text}} </a>
+                    @endforeach
+
                 </div>
             </div>
         </div>

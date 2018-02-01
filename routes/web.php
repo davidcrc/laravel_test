@@ -12,5 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // Video 05 :
+    $links = [
+        'https://www.platzi.com/laravel' => 'Curo de laravel',
+        'https://laravel.com' => 'Pagina de laravel'
+    ];
+    
+    return view('welcome', [
+        'linkss' => $links,
+        'teacher' => 'Un profesor X',
+    ]);
+});
+
+Route::get('/id', function ($id) {
+    
 });
