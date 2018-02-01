@@ -13,3 +13,7 @@
 
 // Video 06: PagesController@home (en / y /acerca)
 Route::get('/', "PagesController@home");
+
+// video 11: Traer un mensaje en recorrido completo
+Route::get('/messages/{message}','MessagesController@show');
+
