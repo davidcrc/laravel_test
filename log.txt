@@ -29,5 +29,9 @@ Comandos make:
         php artisan make:model Message
     }
 
+    video 13:
+        - php artisan make:request nombre: Crea una clase para requerimientos de interfaz
+        php artisan make:request CreateMessageRequest
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion

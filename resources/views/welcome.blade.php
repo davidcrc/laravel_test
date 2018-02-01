@@ -16,12 +16,17 @@
         </nav>
     </div> 
 
-    {{--    --}}
+    {{--  Video 13: Formulario q interactua con web.php -> create -> BD --}}
     <div class="row" >
         <form action="/messages/create" method="post">
-            {{csrf_field()}}
-            <div class="form-group">
+            <div class="form-group @if($errors->has('message')) has-danger @endif" >
+                {{csrf_field()}}
                 <input type="text" name="message" class="form-control" placeholder="Que ta pensando??">
+                @if($errors->any())
+                    @foreach ($errors->get('message') as $error)
+                        <div class="form-control-feedback" > {{$error}} </div>
+                    @endforeach
+                @endif
             </div>       
         </form>
     </div>

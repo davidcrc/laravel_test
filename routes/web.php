@@ -19,3 +19,4 @@ Route::get('/messages/{message}','MessagesController@show');
 
 // Video 12: datos que se enviaran de formularios a:
 Route::post('/messages/create','MessagesController@create');
+//          y seran guardados en la BD
