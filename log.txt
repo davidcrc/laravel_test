@@ -7,21 +7,27 @@ Comandos make:
     php artisan make:controller
 
     - php artisan make:migration nombre: Crear modificar, borrar tablas en la BD
-    //video 09
-    php artisan make:migration create_messages_table --create messages
-    php artisan migrate     (regenera todas las migraciones)
+    //video 09 {
+        php artisan make:migration create_messages_table --create messages
+        php artisan migrate     (regenera todas las migraciones)
 
-    php artisan make:migration add_created_at_index_to_messages_table --table messages (modificar una tablas)
-    php artisan migrate
+        php artisan make:migration add_created_at_index_to_messages_table --table messages (modificar una tablas)
+        php artisan migrate
 
-    // vuelve atras la ultima migracion ejecutada
-    php artisan migrate:rollback
+        // vuelve atras la ultima migracion ejecutada
+        php artisan migrate:rollback
 
-    // borra todo
-    php artisan migrate:reset
+        // borra todo
+        php artisan migrate:reset
 
-    // borra y luego carga todo
-    php artisan migrate:refresh
+        // borra y luego carga todo
+        php artisan migrate:refresh
+    }
+
+    //video 10:{
+        - php artisan make:model nombre : crea un modelo para traer datos de la BD
+        php artisan make:model Message
+    }
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion

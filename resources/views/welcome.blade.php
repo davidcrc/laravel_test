@@ -20,10 +20,10 @@
 <div class="row" >
         @forelse($messages as $message)
             <div class="col-6" >
-                <img class="img-thumbnail" src="{{ $message['image'] }}" > 
+                <img class="img-thumbnail" src="{{ $message->image }}" > 
                     <p class="card-text" >
-                        {{ $message['content'] }}
-                        <a href="/messages/{{ $message['image'] }}" > Leer mas </a> {{-- por q /mesages ?? --}}
+                        {{ $message->content }}
+                        <a href="/messages/{{ $message->id }}" > Leer mas </a> {{-- por q /mesages ?? --}}
                         
                     </p>
             </div>
