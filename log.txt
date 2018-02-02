@@ -51,5 +51,9 @@ Comandos make:
     video 16: Autenticacion de usuarios con login
         php artisan make:auth : Hay q modificar varias cosas pal bootstrap-4 , falta creaur un request de requerimientos personalizado
 
+    Video 17: Modificar la tabla de usuarios para añadir un nick y un avatar (mod en los control de autenticac)
+        php artisan make:migration add_username_and_avatar_to_users_table --table users
+        php artisan migrate
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion

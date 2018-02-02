@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-// autenticacion
+// video 17: autenticacion 
 
 class User extends Authenticatable
 {
@@ -16,8 +16,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    // EL concepto contrario de guarded, variables que se pueden llenar?
+    // MOD: username, avatar
     protected $fillable = [
-        'name', 'email', 'password',
+        'name','username', 'avatar' , 'email', 'password',
     ];
 
     /**
