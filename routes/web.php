@@ -20,3 +20,7 @@ Route::get('/messages/{message}','MessagesController@show');
 // Video 12: datos que se enviaran de formularios a:
 Route::post('/messages/create','MessagesController@create');
 //          y seran guardados en la BD
+
+// Video 16: agregado por auth
+Auth::routes();
+// Route::get('/home', 'HomeController@index')->name('home');

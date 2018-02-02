@@ -44,9 +44,12 @@ Comandos make:
         - database/seeds/DatabaseSeeder.php : Crear desde los seeds , mejor
             php artisan db:seed
             
-            php artisan migrate:refresh --seed
+            php artisan migrate:refresh --seed : rellena la BD con los parametros dados
+
     Video 15: Paginacion - welcome.blade
 
-    
+    video 16: Autenticacion de usuarios con login
+        php artisan make:auth : Hay q modificar varias cosas pal bootstrap-4 , falta creaur un request de requerimientos personalizado
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
