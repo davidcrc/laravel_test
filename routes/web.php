@@ -18,7 +18,7 @@ Route::get('/', "PagesController@home");
 Route::get('/messages/{message}','MessagesController@show');
 
 // Video 12: datos que se enviaran de formularios a:
-Route::post('/messages/create','MessagesController@create');
+Route::post('/messages/create','MessagesController@create')->middleware('auth');    //Video 18: antes del controler, chekar el login de usuario
 //          y seran guardados en la BD
 
 // Video 16: agregado por auth

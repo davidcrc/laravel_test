@@ -34,13 +34,9 @@
     {{--  video 8: desde aqui: cargan imagenes aleatorias  --}}
 <div class="row" >
         @forelse($messages as $message)
+            {{--  Video 18: Se movio un mensaje a otro archivo : message  --}}
             <div class="col-6" >
-                <img class="img-thumbnail" src="{{ $message->image }}" > 
-                    <p class="card-text" >
-                        {{ $message->content }}
-                        <a href="/messages/{{ $message->id }}" > Leer mas </a> {{-- por q /mesages ?? --}}
-                        
-                    </p>
+               @include('messages.message')
             </div>
         @empty
             <p> No hay mensajes destacados </p>

@@ -55,5 +55,15 @@ Comandos make:
         php artisan make:migration add_username_and_avatar_to_users_table --table users
         php artisan migrate
 
+    Video 18: Crear una relacion entre usuarios y mensajes (Message.php)-> Relaciones belongsTo()
+        php artisan make:migration add_user_id_column_to_messages_table --table messages
+        // primero hay que borrar toda la BD, para tener integridad de datos en las claves 
+        php artisan migrate:reset        
+        php artisan migrate
+        
+        // hay Modificacion de vistas y controladores , ademas de los seeds, UserFactory con username y avatar
+        // Se ha relacionado cada usuario con un mensaje : DatabaseSeeder :
+            php artisan db:seed
+        
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
