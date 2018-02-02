@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 // video 17: autenticacion 
+// video 19: Relacion hasmany
 
 class User extends Authenticatable
 {
@@ -30,4 +31,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // video:19 Le digo a este modelo de usuarios que otro modelo (Message) tiene muchos user_id
+    // orderBy('created_at','desc')
+    public function messages()
+    {
+        return $this->hasMany(Message::class)->orderBy('created_at','desc');
+    }
 }

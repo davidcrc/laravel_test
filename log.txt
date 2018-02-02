@@ -65,5 +65,21 @@ Comandos make:
         // Se ha relacionado cada usuario con un mensaje : DatabaseSeeder :
             php artisan db:seed
         
+    Video 19: Obtener todos los mensajes de un usuario con la relacion hasMany()
+        Añandida una ruta /{username} , que recibira los nick
+        Añadia una funcion en usuario->message() para relacionar los mensajes del usuario
+        Añandida una funcion show q relaciona  UsersController con User  y otiene todos los mensajes de un id de usuario
+        Añadida una vista users.show q recibe los datos de la linea anterior y los muestra
+
+        Añadida la fecha de creacion en la vista, luego
+            php artisan migrate:refresh  --seed
+
+        Añadida en PageController un latest(), q ordena por mas reciene las fechas de mensajes
+        Añadida en User.php un orderBy(), q ordena por mas reciene las fechas de mensajes
+        
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
+
+Helps varios:
+    dd($messages) -> muestra todo el contenido en el navegador

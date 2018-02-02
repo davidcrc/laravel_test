@@ -11,14 +11,16 @@ use Illuminate\Http\Request;
 
 // Video 10 : El modelo Message que se crea con model, nos devuelve
 //          datos de la BD para poder mostrarlos
-// help : dd($messages) -> muestra todo el contenido en el navegador
+// HELP : dd($messages) -> muestra todo el contenido en el navegador
+
+// Video 19: Al paginar ordenar por fecha de creacion
 
 class PagesController extends Controller
 {
     public function home(){ // enviar un array con imagenes aleatorias
         
         // $messages = Message::all();
-        $messages = Message::paginate(4);       //para paginar
+        $messages = Message::latest()->paginate(6);       //para paginar
         
         return view('welcome', [
             'messages' => $messages,

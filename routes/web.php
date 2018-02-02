@@ -24,3 +24,6 @@ Route::post('/messages/create','MessagesController@create')->middleware('auth');
 // Video 16: agregado por auth
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
+
+// Video 19: Para mostrar los mensajes de un usuario (crear UsersController)
+Route::get('/{username}','UsersController@show');

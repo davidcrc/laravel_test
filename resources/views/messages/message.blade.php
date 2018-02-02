@@ -7,4 +7,10 @@
     </div>
     {{ $message->content }}
     <a href="/messages/{{ $message->id }}" > Leer mas </a>
+
+    {{--  Video 19: fechas de creacion del mensaje  --}}
+
+    <div class="card-text text-muted float-right" >
+        {{$message->created_at}}
+    </div>
 </p>
