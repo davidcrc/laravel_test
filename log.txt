@@ -33,5 +33,18 @@ Comandos make:
         - php artisan make:request nombre: Crea una clase para requerimientos de interfaz
         php artisan make:request CreateMessageRequest
 
+    Video 14:
+        - database/factories/ModelFactory : Generador de contenido
+            config/app.php/UserFactory.php 
+        - php artisan tinker
+            factory(App\Message::class)->make() : Solo lo crea
+            factory(App\Message::class)->create() : Crea y guarda
+            App\Message::find(#indice)
+        
+        - database/seeds/DatabaseSeeder.php : Crear desde los seeds , mejor
+            php artisan db:seed
+            
+            php artisan migrate:refresh --seed
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
