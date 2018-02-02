@@ -45,5 +45,12 @@
         @empty
             <p> No hay mensajes destacados </p>
         @endforelse
+
+        {{--  Video 15: Paginacion  --}}
+        @if(count($messages))
+        <div class="mt-2 mx-auto" >
+            {{$messages->links('pagination::bootstrap-4') }}
+        </div>
+        @endif
 </div>
 @endsection

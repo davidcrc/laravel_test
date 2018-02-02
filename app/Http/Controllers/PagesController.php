@@ -17,7 +17,8 @@ class PagesController extends Controller
 {
     public function home(){ // enviar un array con imagenes aleatorias
         
-        $messages = Message::all();
+        // $messages = Message::all();
+        $messages = Message::paginate(4);       //para paginar
         
         return view('welcome', [
             'messages' => $messages,
