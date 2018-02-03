@@ -89,6 +89,12 @@ Comandos make:
 
         Añadido SEGUIR A OTRO USUARIO : users.show un formulario [min 12]->errores
 
+    Video 21: Dejar de seguir a otro usuario
+        Añadida la ruta unfollow - raro q solo pasa con get y no con post !!
+        Añadida funcion UserController.unfollow() 
+        Añadida funcion User.php.isFollowing(), consulta si al q estoy visitando lo estoy o no siguiendo
+        Añadida vista que me deja saber cuantos sigue un usuario y cuantos los siguen (mods en vistas)
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
 

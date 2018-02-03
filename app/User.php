@@ -50,4 +50,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class,'followers','followed_id','user_id');
     }
+
+    // Video 21: Saber si el usuario actual, sigue al que esta visitando
+    public function isFollowing(User $user)
+    {
+        return $this->follows->contains($user);     //devuelve true or false
+    }
 }

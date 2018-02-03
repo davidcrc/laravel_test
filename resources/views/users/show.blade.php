@@ -3,16 +3,38 @@
 @section('content')
 
     <h1> {{$user->name}} </h1>
-    {{--  Video 20: Link para poder seguir al usuario, mas una route::  --}}
-    <form action="/{{$user->username}}/follow "  methot="post" >
+    {{--  parte 2 - video 21  --}}
+    <a href="{{$user->username}}/follows" > 
+        Sigue a : <span class="badge badge-default" >  {{$user->follows->count()}} usuarios.</span>
+    </a>
+    <a href="{{$user->username}}/followers" > 
+        Seguidores : <span class="badge badge-default" >  {{$user->followers->count()}} usuarios.</span>
+    </a>
+
+{{--  Video 21: Dejar de seguir a otro usuario  --}}
+@if(Auth::check())
+    @if(Auth::user()->isFollowing($user) )     {{--  si sigo a este usuario  --}}
+    <form action="/{{$user->username}}/unfollow"  methot="get" >
         {{csrf_field()}}
         
         @if(session('success'))
-            <span class="text-success" > {{session('success')}} </span>
+        <span class="text-success" > {{session('success')}} </span>
         @endif
-        <button class="btn btn-primary" > Follow  </button>
+        <button class="btn btn-danger" > Dejar de seguir  </button>
     </form>
-
+    
+    @else
+    {{--  Video 20: Link para poder seguir al usuario, mas una route::  --}}
+    <form action="/{{$user->username}}/follow"  methot="get" >
+        {{csrf_field()}}
+        
+        @if(session('success'))
+        <span class="text-success" > {{session('success')}} </span>
+        @endif
+        <button class="btn btn-primary" > Seguir  </button>
+    </form>
+    @endif
+@endif
     {{--  Video 19: muestra los mensajes de un determinado usuario  --}}
     <div class="row" >
         @foreach($user->messages as $message)

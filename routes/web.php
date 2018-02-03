@@ -31,4 +31,10 @@ Route::get('/{username}','UsersController@show');
 // Video 20: A quien sigue el usuario
 Route::get('/{username}/follows','UsersController@follows');
 //      para seguir a un usuario
-Route::post('/{username}/follow','UsersController@follow');
+Route::get('/{username}/follow','UsersController@follow');     //post ??
+
+// Video 21: Dejar de seguir
+Route::get('/{username}/unfollow','UsersController@unfollow'); //post ??
+Route::get('/{username}/followers','UsersController@followers'); //post ??
+
+
