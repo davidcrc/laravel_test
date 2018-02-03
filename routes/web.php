@@ -27,3 +27,8 @@ Auth::routes();
 
 // Video 19: Para mostrar los mensajes de un usuario (crear UsersController)
 Route::get('/{username}','UsersController@show');
+
+// Video 20: A quien sigue el usuario
+Route::get('/{username}/follows','UsersController@follows');
+//      para seguir a un usuario
+Route::post('/{username}/follow','UsersController@follow');

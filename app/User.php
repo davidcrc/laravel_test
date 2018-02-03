@@ -38,4 +38,16 @@ class User extends Authenticatable
     {
         return $this->hasMany(Message::class)->orderBy('created_at','desc');
     }
+
+    // Video 20: A quienes sigue un usuario
+    public function follows()
+    {
+        return $this->belongsToMany(User::class,'followers','user_id','followed_id');
+    }
+
+    // Video 20: Quienes siguen a un usuario
+    public function followers()
+    {
+        return $this->belongsToMany(User::class,'followers','followed_id','user_id');
+    }
 }

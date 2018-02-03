@@ -71,12 +71,23 @@ Comandos make:
         Añandida una funcion show q relaciona  UsersController con User  y otiene todos los mensajes de un id de usuario
         Añadida una vista users.show q recibe los datos de la linea anterior y los muestra
 
-        Añadida la fecha de creacion en la vista, luego
+        - Añadida la fecha de creacion en la vista, luego
             php artisan migrate:refresh  --seed
 
         Añadida en PageController un latest(), q ordena por mas reciene las fechas de mensajes
         Añadida en User.php un orderBy(), q ordena por mas reciene las fechas de mensajes
-        
+
+    Video 20: Seguimiento entre usuarios
+        - Tabla intermedia? , entre usuario y usuario_sigue
+            php artisan make:migration create_followers_table --create followers
+
+        Añadia follows y followed en User.php
+        Añadia la ruta /{username}/follows q nos dira los follows de determiando usuario
+        Añadia la vista users.follows q mostrara los nicks de los usuarios q a losq sigue
+        - Borrar todo y crear usuarios con sus follows
+            php artisan migrate:refresh  --seed
+
+        Añadido SEGUIR A OTRO USUARIO : users.show un formulario [min 12]->errores
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
