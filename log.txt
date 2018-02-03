@@ -95,6 +95,21 @@ Comandos make:
         Añadida funcion User.php.isFollowing(), consulta si al q estoy visitando lo estoy o no siguiendo
         Añadida vista que me deja saber cuantos sigue un usuario y cuantos los siguen (mods en vistas)
 
+    Video 23: Crear en developers.facebook
+        añadir uso web y obtener el id de suaurio y contraseña
+
+    Video 23: Sesion con facebook
+        - Instalar socialite
+        composer require laravel/socialite
+        Añadir config/app.php   : Laravel\Socialite\SocialiteServiceProvider::class,  (tal vez no-nose)
+        Añadir :   ""           : 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        Añadir el controlador SocialAuthController.php
+        Añadir a rutas  facebook
+        Añadidas las funciones facebook() y callback()
+        Añadir en config.services.php -> 'facebook' => 'client_id' , 'clave' ,' redirect'
+        Añadido un boton en la vista login
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
 

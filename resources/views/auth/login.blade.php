@@ -62,5 +62,13 @@
             </div>
         </div>
     </div>
+
+    {{--  Video 23: Boton Facbeook  --}}
+
+<div class="row" >
+        <a href="/auth/facebook" class="btn btn-primary" > Entrar-Facebook </a>
+        </div>
 </div>
+
+
 @endsection

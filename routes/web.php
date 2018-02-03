@@ -25,6 +25,13 @@ Route::post('/messages/create','MessagesController@create')->middleware('auth');
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// -----------------------------
+// Video 22: Agregar autenticacion con Facebook
+Route::get('/auth/facebook','SocialAuthController@facebook');
+Route::get('/auth/facebook/callback','SocialAuthController@callback');
+
+// -----------------------------
+
 // Video 19: Para mostrar los mensajes de un usuario (crear UsersController)
 Route::get('/{username}','UsersController@show');
 
