@@ -36,10 +36,10 @@ return [
     ],
 
     // Video 23: Conecta el proyecto laravel con Facebook
-    //  aun falta pasar ala config de entorno
+    //  cambiado a la variable de entorno env()
     'facebook' => [
-        'client_id' => '167399253894985',
-        'client_secret' => '503167f4e6362344992aa1ea8743ec41',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
         'redirect' => 'http://localhost:8000/auth/facebook/callback'
     ],
 

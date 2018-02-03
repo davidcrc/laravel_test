@@ -109,9 +109,35 @@ Comandos make:
         Añadir en config.services.php -> 'facebook' => 'client_id' , 'clave' ,' redirect'
         Añadido un boton en la vista login
 
+    Video 24: Registro con facebook
+        Cambiar las credenciales a una variable de entorno (quitar lo de config.services.php)
+
+        - Crear un modelo para guiardar los datos que vienen de facebook
+            php artisan make:model SocialProfile
+            php artisan make:migration create_social_profiles_table --create social_profiles
+        Guardar los datos de facebook en una sesion SocialAuthController.callbak() y enviarlos a la vista user.facebook
+        La vista user.facebook ya tiene los adtos principales
+        Crear una ruta auth/facebook/register, obtener los datos de la session facebook
+        Añadir en migatrion.SocialProfile -> user_id. social_id
+        Añadir en SocialProfile un guarded=[] , para permitir crear datos y asi quitarle la proteccion
+        Añadir en User.php socialProfiles() -> Un usuario tiene muchos perfles, pero el perfil pertenece a un solo usuario
+        Añadir en SSocialProfile.php user() -> muchos perfiles tiene un usuario 
+
+        Añadir en SocialAthController.php register(), que creara los datos de usuario y asociara a un perfil, y hara loguin
+
+        Comenzar:
+            php artisan migrate
+        
+        --- Por alguna razon no funcion con post, si con get [web.php/...register, facebook.blade.php->form ]
+        --- Aqui hay un  detalle, cada vez q quiero iniciar sesion lo vuelve a registar y eso esta mal
+        --- Al parecer cuando me logueo con facebook, siempre debo loguearme con facebook
+        --- Parece que nesecito un Model para followers ya que no crea los timestamp() en la BD
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
+    - Conexion con Facebook, se añadio dos variables de entorno:
+        FACEBOOK_ID = 
+        FACEBOOK_SECRET = 
 
 Helps varios:
     dd($messages) -> muestra todo el contenido en el navegador

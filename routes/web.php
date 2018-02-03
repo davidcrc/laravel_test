@@ -29,7 +29,8 @@ Auth::routes();
 // Video 22: Agregar autenticacion con Facebook
 Route::get('/auth/facebook','SocialAuthController@facebook');
 Route::get('/auth/facebook/callback','SocialAuthController@callback');
-
+// Video 24: Registar con facebook
+Route::get('/auth/facebook/register','SocialAuthController@register');
 // -----------------------------
 
 // Video 19: Para mostrar los mensajes de un usuario (crear UsersController)

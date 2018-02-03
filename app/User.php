@@ -56,4 +56,11 @@ class User extends Authenticatable
     {
         return $this->follows->contains($user);     //devuelve true or false
     }
+
+    // Video 24: Un usuario tiene muchos perfles, pero el perfil pertenece a un solo usuario
+    public function socialProfiles()
+    {
+        return $this->hasMany(SocialProfile::class);
+    }
+    
 }
