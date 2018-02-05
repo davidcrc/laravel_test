@@ -157,6 +157,14 @@ Comandos make:
         --- Faltan definir los dropps para las tablas creadas aqui!
         --- Queda por definir la funcion en un controlador para el paso (guardado ) de mesnajes
 
+    // Video 27: Iniciar una conversacion recibirla y poder mostrarla
+        Añadir las rutas : Controlador para el paso de mensajes
+        Añadido las funciones sendPrivateMessage, atrapa el mensaje, lo convierte en conversacion y lo guarda
+        Añadida las funciones users() y privateMessages() que relaciona cada conver con los usuarios y lista los mensajes [respectivament]
+        Añadida la funcion showConversation(), precarga todos los usuarios y mensajes relacionados entre si, los bota a la vista}
+        Añadida la vista users.conversation.blade.php, muestra los mensajes pasados de a 1 , por ahora!
+
+        --- Problema: en la vista conversation.blade.php  la variable: $message->user->name , no se porque $message o.O
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion

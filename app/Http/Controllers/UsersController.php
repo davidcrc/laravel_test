@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Conversation;
+use App\PrivateMessage;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -10,6 +12,9 @@ use Illuminate\Http\Request;
 // Video 20: Funcion para encontrar a quien sigo: attach() 
 // Video 21: Funcion para unfollow a un usuario: detach()
 //      funcion followers 
+// Video 27: Funcion para recibir un mensaje y convertirlo en una conversacion , SendPrivateMessage
+//      tmbn App\Conversation, App\PrivateMessage
+
 class UsersController extends Controller
 {
     // buscar al usuario y encontrar todos sus mensajes
@@ -70,6 +75,41 @@ class UsersController extends Controller
             'follows' => $user->followers,
         ]);
     }
+    
+    // Video 27: Atrapar el mensaje 
+    public function sendPrivateMessage($username, Request $request)     //username , el usuario q estoy viendo
+    {
+        $user = $this->findByUsername($username);
+
+        $me = $request->user();
+        $message = $request->input('message');
+
+        // Se crea una conversacion para los usuarios, ver: App\Conversation->users()
+        $conversation = Conversation::create();
+        $conversation->users()->attach($me);
+        $conversation->users()->attach($user);
+
+        $privateMessage = PrivateMessage::create([      //PrivateMessage.php crear un guarded[]
+            'conversation_id' => $conversation->id,
+            'user_id' => $me->id,
+            'message' => $message
+        ]);
+
+        return redirect('/conversations/'.$conversation->id);
+    }
+
+    // vid 27: mostar la conversacion
+    public function showConversation(Conversation $conversation)
+    {  
+        $conversation->load('users','privateMessages');     // sus funciones() , debe cargar toditos los datos de los usuarios??
+        // dd($conversation);
+
+        return view('users.conversation', [
+            'conversation' => $conversation,
+            'user' => auth()->user(),
+        ]);
+    }
+
 
     private function findByUsername($username)
     {

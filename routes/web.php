@@ -39,10 +39,16 @@ Route::get('/{username}','UsersController@show');
 // Video 20: A quien sigue el usuario
 Route::get('/{username}/follows','UsersController@follows');
 //      para seguir a un usuario
-Route::get('/{username}/follow','UsersController@follow');     //post ??
+Route::get('/{username}/follow','UsersController@follow')->middleware('auth');     //post ??
 
 // Video 21: Dejar de seguir
-Route::get('/{username}/unfollow','UsersController@unfollow'); //post ??
+Route::get('/{username}/unfollow','UsersController@unfollow')->middleware('auth'); //post ??
 Route::get('/{username}/followers','UsersController@followers'); //post ??
+
+// Video 27: Controlador para el paso de mensajes
+//  Aqui tmbn hizo una agrupacion de middleware()
+Route::post('/{username}/dms','UsersController@sendPrivateMessage')->middleware('auth');
+Route::get('/conversations/{conversation}','UsersController@showConversation')->middleware('auth');
+
 
 

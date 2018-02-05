@@ -15,12 +15,14 @@
 @if(Auth::check())
 
     @if(Gate::allows('dms',$user))  {{--  video 26 - añadido este formulario, para enviar mensajes si sigo y me sigue, y la regla Gate  --}}
-        <form action="/{{$user->username}}/dms" method="post">          
-            <input type="text" name="message" class="form-control">
+    <form action="/{{$user->username}}/dms" method="post">
+        {{csrf_field()}}
+            
+        <input type="text" name="message" class="form-control">
             <button type="submit" class="btn btn-success">
                 Enviar DM
             </button>    
-        </form>
+    </form>
     @endif
 
     @if(Auth::user()->isFollowing($user) )     {{--  si sigo a este usuario  --}}
