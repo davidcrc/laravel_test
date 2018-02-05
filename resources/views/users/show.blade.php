@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
     <h1> {{$user->name}} </h1>
     {{--  parte 2 - video 21  --}}
     <a href="{{$user->username}}/follows" > 
@@ -9,10 +9,20 @@
     </a>
     <a href="{{$user->username}}/followers" > 
         Seguidores : <span class="badge badge-default" >  {{$user->followers->count()}} usuarios.</span>
-    </a>
+    </a>    
 
 {{--  Video 21: Dejar de seguir a otro usuario  --}}
 @if(Auth::check())
+
+    @if(Gate::allows('dms',$user))  {{--  video 26 - añadido este formulario, para enviar mensajes si sigo y me sigue, y la regla Gate  --}}
+        <form action="/{{$user->username}}/dms" method="post">          
+            <input type="text" name="message" class="form-control">
+            <button type="submit" class="btn btn-success">
+                Enviar DM
+            </button>    
+        </form>
+    @endif
+
     @if(Auth::user()->isFollowing($user) )     {{--  si sigo a este usuario  --}}
     <form action="/{{$user->username}}/unfollow"  methot="get" >
         {{csrf_field()}}

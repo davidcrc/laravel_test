@@ -138,7 +138,24 @@ Comandos make:
         , a la siguiente ingresara  directo.
         Añadida SocialAuthController.callback() consulta  que nos dice siya se registro antes con facebook
 
+    // Video 26: Permitir ciertas acciones (mensajes privados , conversaciones : seguidor y seguido)
         
+        - Modelos y migration: [ CHEKAR QUE EL MODEL ESTA EN SINGULAR Y LAS MIGRATION SE CREARON EL PLURAL!!!! ]
+        php artisan make:model Conversation --migration
+        php artisan make:model PrivateMessage --migration
+        
+        - Tabla intermedia de conversaciones unida a usuarios:
+        php artisan make:migration create_conversation_user_table --create conversation_user
+        php artisan migrate
+
+        Añadido un formulario que muestra un formulario para el envio de mensajes en users.show.blade
+
+        - Concepto de gate : ? definir reglas.
+            App\Providers\AtuhServiceProvider.php boot(), se define una reglas
+            y en la interfaz user.show , se añade una condicion para usar la regla
+
+        --- Faltan definir los dropps para las tablas creadas aqui!
+        --- Queda por definir la funcion en un controlador para el paso (guardado ) de mesnajes
 
 
 Configurar Base de datos:
