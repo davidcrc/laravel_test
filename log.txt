@@ -133,6 +133,14 @@ Comandos make:
         --- Al parecer cuando me logueo con facebook, siempre debo loguearme con facebook
         --- Parece que nesecito un Model para followers ya que no crea los timestamp() en la BD
 
+    // Video 25: Login con Facebook, pasando por un anterior registro con facebook
+        En el vid24, el boton ingresar con facebook , siempre te decia registrar el perfil, pero ahora si ya se gistro una vez 
+        , a la siguiente ingresara  directo.
+        Añadida SocialAuthController.callback() consulta  que nos dice siya se registro antes con facebook
+
+        
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:

@@ -22,8 +22,18 @@ class SocialAuthController extends Controller
     public function callback()
     {
         $user = Socialite::driver('facebook')->user();
-        // mostrar lo que trajo:
-        // dd($user);
+        // mostrar lo que trajo:  dd($user);
+
+        // Video 25: Consulta para saber si ya se registro antes con facebook, y mandarlo defrente
+        $existing = User::whereHas('socialProfiles', function($query) use ($user) {
+            $query->where('social_id',$user->id);
+        })->first();
+        if($existing !== null){
+            auth()->login($existing);
+
+            return redirect('/');
+        }
+
 
         // datos por cada session
         session()->flash('facebookUser',$user);
