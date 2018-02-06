@@ -25,4 +25,14 @@ class Message extends Model
         return $this->belongsTo(User::class);
 
     }
+
+    // Video 29: Tomara el atributo de una imagen
+    public function getImageAttribute($image)       // esta reescribiendo una fucnion??
+    {
+        if (!$image || starts_with($image, 'http')){
+            return $image;
+        }
+
+        return \Storage::disk('public')->url($image);
+    }
 }

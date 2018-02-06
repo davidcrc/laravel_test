@@ -1,4 +1,5 @@
- <img class="img-thumbnail" src="{{ $message->image }}" > 
+ {{--  <img class="img-thumbnail" src="{{ Storage::disk('public')->url($message->image) }}" >     --}} {{-- video 29  --}}
+ <img class="img-thumbnail" src="{{ $message->image }}" >       {{-- video 29 : ahora llama a GetImageAttribute() --}}
  <p class="card-text" >
     <div class=="text-muted" > Escrito por: 
         <a href="/{{$message->user->username}} " >

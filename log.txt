@@ -171,6 +171,24 @@ Comandos make:
         Modificado UserController sendPrivateMessage() , ahora pregunta si existe conversation en funcion between()
         --- AUN ESTA PENDIENTE EL INPUT DEL MENSAJE , DA ERROR CUANDO ESTA VACIO
 
+    // Video 29 : Subiendo archivos con fileupload
+
+        Añadida el boton de subir en la vista welcome
+        - Modificar el MessagesController.php para pedir por la imagen , en vez de generarla aleatoria
+            y una carpeta 'messages' que guardara las imagenes
+        Chekar congfig.filesystems.php para saber don de guardar
+
+        - Vincular la carpeta public y ahi guardar todo (En windows usar homestead)
+        php artisan storage:link
+        ls public           //debe salir el vinculo de la carpeta public/storage
+
+        Añadir la ruta en messages.message, TAMBIEN EL .env: APP_URL=http://localhost:8000 ;
+            AL FINAL CAMBIADO POR: 
+
+        - Mejor que se fije en si es una ruta propia o una url:
+            Modificar Message.php getImageAttribute($image) que devuele una ruta propia o de internet
+
+
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
