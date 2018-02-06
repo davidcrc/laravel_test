@@ -21,6 +21,9 @@ Route::get('/messages/{message}','MessagesController@show');
 Route::post('/messages/create','MessagesController@create')->middleware('auth');    //Video 18: antes del controler, chekar el login de usuario
 //          y seran guardados en la BD
 
+// Video 31: Controlador para la busqueda de mensajes
+Route::get('/messages','MessagesController@search');
+// ---
 // Video 16: agregado por auth
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -49,6 +52,4 @@ Route::get('/{username}/followers','UsersController@followers'); //post ??
 //  Aqui tmbn hizo una agrupacion* de middleware() | * Route::Group(['middleware'=> 'auth], function(){Aqui las rutas});
 Route::post('/{username}/dms','UsersController@sendPrivateMessage')->middleware('auth');
 Route::get('/conversations/{conversation}','UsersController@showConversation')->middleware('auth');
-
-
 

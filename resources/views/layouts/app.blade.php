@@ -28,9 +28,20 @@
                 </a> 
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar --> 
+                    <!-- Left Side Of Navbar - VIDEO 31: Buscador de mensajes--> 
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        {{--  &nbsp;  --}}
+                        <li class="nav-item">
+                            <form action="/messages">
+                                <div class="input-group"> 
+                                    <input type="text" name="query" class="form-control" placeholder="Buscar..." required> 
+                                    <span class="input-grupo-btn"> 
+                                        <button class="btn btn-outline-success"> Buscar </button>
+                                    </span>
+
+                                </div>
+                            </form>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

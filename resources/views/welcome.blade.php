@@ -21,7 +21,7 @@
         <form action="/messages/create" method="post" enctype="multipart/form-data">
             <div class="form-group @if($errors->has('message')) has-danger @endif" >
                 {{csrf_field()}}
-                <input type="text" name="message" class="form-control" placeholder="Que ta pensando??">
+                <input type="text" name="message" class="form-control" placeholder="Que ta pensando??" required>
                 @if($errors->any())
                     @foreach ($errors->get('message') as $error)
                         <div class="form-control-feedback" > {{$error}} </div>

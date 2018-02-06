@@ -33,7 +33,6 @@ class MessagesController extends Controller
     //     );
     //     return 'llego!!';
     // }
-
     public function create(CreateMessageRequest $request){  // ahora pide de CreateMessageRequest
         
         // obtener el usuario logueado
@@ -51,4 +50,17 @@ class MessagesController extends Controller
         // redirecciono a la vista messages.show
         return redirect('/messages/'.$message->id);
     }
+
+    //  Video 31: Funcion para buscar palabrs en los mensajes 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');          // Viene de la vista app.blade
+
+        $messages = Message::where('content', 'LIKE', "%$query%")->get();
+        // dd($messages);
+        return view('messages.index', [
+            'messages' => $messages
+        ]);
+    }
+    
 }

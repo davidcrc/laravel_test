@@ -199,8 +199,13 @@ Comandos make:
 
         modificar en .env , para APP_DEBUG=false, para ver como usuario
 
+    // Video 31 : Buscar mensajes por contenido
+        Añadida los botones en la vista layouts.app 
+        Añadido la Fcuncion search() en el controlador MessagesControler
+        Añdadida la vista messages.index , que recibe los resultados de search() y los muestra
 
-
+        --- Probando un required para la publicacion de mesnajes en Welcome.blade
+ 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
