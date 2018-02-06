@@ -188,6 +188,17 @@ Comandos make:
         - Mejor que se fije en si es una ruta propia o una url:
             Modificar Message.php getImageAttribute($image) que devuele una ruta propia o de internet
 
+    // Video 30 : Majeo de errores amigables :)
+        Crear la carpeta errors en la carpeta views
+        Podemos crear deacuerdo al error , ej: 404.blade.php , 403...
+
+        - Si no existen recursos por URL podemos usar firstOrFail(), eje: en el controlador: UsersControler
+
+        - Si Es un error del servidor podemos configurar un 500.blade.php ,  
+                pero atrapandolo en app\exception\handler.php -> PARECE QUE YA NO°°°
+
+        modificar en .env , para APP_DEBUG=false, para ver como usuario
+
 
 
 Configurar Base de datos:

@@ -20,6 +20,7 @@ class UsersController extends Controller
     // buscar al usuario y encontrar todos sus mensajes
     public function show($username)
     {
+        // throw new \Exception("Simulacion");      // Video 30. lanzando un error manual
         // $user = User::where('username', $username)->first();
         $user = $this->findByUsername($username);
 
@@ -117,7 +118,8 @@ class UsersController extends Controller
 
     private function findByUsername($username)
     {
-        return User::where('username', $username)->first();
+        // return User::where('username', $username)->first();
+        return User::where('username', $username)->firstorFail();       // para recurso por URL
     }
     
 }
