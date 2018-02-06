@@ -221,6 +221,9 @@ Comandos make:
         
         --- MMMMMM tal vez sea un poco mas rapido, pero las consultas son optimizables
 
+    // Video 34 : Busqueda por autor , jdr
+        - Añadida a Message.php toSearchableArray(), que indexa los usuarios de la consulta
+        php artisan scout:import App\\Message
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion

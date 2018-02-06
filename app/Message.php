@@ -38,4 +38,13 @@ class Message extends Model
 
         return \Storage::disk('public')->url($image);
     }
+
+    // Video 34: Devuelve los usuarios de la consulta, como una indexacion a los user_id de la consulta, pero con sus datos
+    public function toSearchableArray()       // re escrito   
+    {   
+        $this->load('user');        //jdr, cargo los usuarios de la query!!!!
+
+        return $this->toArray();        // devuelve los usuarios encontrados, ahpora tmbn usuarios tiene indice!!
+    }
+    
 }
