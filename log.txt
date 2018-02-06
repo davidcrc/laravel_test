@@ -206,6 +206,9 @@ Comandos make:
 
         --- Probando un required para la publicacion de mesnajes en Welcome.blade
  
+    // Video 32 : Un debuger para ver lo q sucede:
+        Agregamos una mejora a MessagesController en la busqueda ->search()
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
@@ -214,3 +217,9 @@ Configurar Base de datos:
 
 Helps varios:
     dd($messages) -> muestra todo el contenido en el navegador
+    Laravel debuger -> packagist.org -> laravel-debugbar -> composer require barryvdh/laravel-debugbar --dev :
+    - Congif.app.php:
+        Barryvdh\Debugbar\ServiceProvider::class,
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+
+        php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"  //creo un config.debugbar.php
