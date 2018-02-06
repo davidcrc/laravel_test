@@ -225,6 +225,20 @@ Comandos make:
         - Añadida a Message.php toSearchableArray(), que indexa los usuarios de la consulta
         php artisan scout:import App\\Message
 
+    // Video 35: Unit-testing , ejecutando testing
+        ./vendor/bin/phpunit        // verde si pasa, rojo si falla
+
+        Existen muchas funciones para testing... revisar video siempre
+        Es un test de integracion, por usar un servicio externo
+
+        - Probar test para usuarios
+        - Podemos usar transacciones para no guargar toda la data de las pruebas
+        - Probamos InteractDB pa saber si se habria modificado la db
+        --- La prueba de login no funciono por alguna razon :v -> seeIsAuthenticated()
+
+
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
