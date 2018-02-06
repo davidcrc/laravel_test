@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;       // video 33
 
 // Eloquent: ORM - Object relacional Mapper: COnvierte de relacional a objetos
 //  ---algo de activerecord
@@ -18,6 +19,8 @@ class Message extends Model
     //  no importa si esta vacio ; puedes proteger alguna cosa en la BD , cosa q no se
     //  crean objetos automaticamente
     protected $guarded = [];
+
+    use Searchable;             // video 33
 
     // Video 18: Pertenecia de una tabla con otra (messages con users)
     public function user()

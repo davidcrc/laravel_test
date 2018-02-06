@@ -56,8 +56,11 @@ class MessagesController extends Controller
     {
         $query = $request->input('query');          // Viene de la vista app.blade
 
-        // $messages = Message::where('content', 'LIKE', "%$query%")->get();
-        $messages = Message::with('user')->where('content', 'LIKE', "%$query%")->get(); // Video 32: mensaje venga con su usuario (osea 2 querys)
+        // $messages = Message::where('content', 'LIKE', "%$query%")->get();        // vid 31
+        // $messages = Message::with('user')->where('content', 'LIKE', "%$query%")->get(); // Video 32: mensaje venga con su usuario (osea 2 querys)
+        $messages = Message::search($query)->get();     // Video 33: utilizando la busqueda con laravel scout y algolia
+        $messages->load('user');       // vid 33: anterior arma, este carga
+
         // dd($messages);
         return view('messages.index', [
             'messages' => $messages

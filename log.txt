@@ -209,6 +209,19 @@ Comandos make:
     // Video 32 : Un debuger para ver lo q sucede:
         Agregamos una mejora a MessagesController en la busqueda ->search()
 
+    // Video 33: Implementa algolia, con laravel scout
+        Instalar Laravel-Scout
+        Instalar Algolia
+        Añadida las importaciones de Scout y laravel a MessagesController    **helps
+        
+        - MessagesController esta  listo pa ser indexado en algolia:
+            php artisan scout:import "modelo" -> modelo = App\\Message
+        - ANTES, Añadir los parametros para conectarse a algolia
+            Application ID y Admin API Key en ALGOLIA_APP_ID y ALGOLIA_SECRET, respectivament
+        
+        --- MMMMMM tal vez sea un poco mas rapido, pero las consultas son optimizables
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
@@ -223,3 +236,13 @@ Helps varios:
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
         php artisan vendor:publish --provider="Barryvdh\Debugbar\ServiceProvider"  //creo un config.debugbar.php
+
+    Laravel-Scout : Mejorar las consultas a BD - driver('algolia')
+        composer require laravel/scout
+        php artisan vendor:publish --provider="Laravel\Scout\ScoutServiceProvider"
+    Driver- Algolia: Motor de busquedas!! o.O
+        composer require algolia/algoliasearch-client-php
+    Importar Searchable, en el controller q desees:
+        use Laravel\Scout\Searchable;
+        use Searchable;
+    ***Posiaca: sudo apt-get install php-curl
