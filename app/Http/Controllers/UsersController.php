@@ -84,10 +84,14 @@ class UsersController extends Controller
         $me = $request->user();
         $message = $request->input('message');
 
+        // Video 28: Tengo ya una conversacion con este usuario?
+        $conversation = Conversation::between($me,$user);    // conversation.php->funcion()
+
         // Se crea una conversacion para los usuarios, ver: App\Conversation->users()
-        $conversation = Conversation::create();
-        $conversation->users()->attach($me);
-        $conversation->users()->attach($user);
+        // -- Aqui eliminado en video 28: esta echo ahora en betweeen()
+        // $conversation = Conversation::create();
+        // $conversation->users()->attach($me);
+        // $conversation->users()->attach($user);
 
         $privateMessage = PrivateMessage::create([      //PrivateMessage.php crear un guarded[]
             'conversation_id' => $conversation->id,

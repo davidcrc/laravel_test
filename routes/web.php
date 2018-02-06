@@ -46,7 +46,7 @@ Route::get('/{username}/unfollow','UsersController@unfollow')->middleware('auth'
 Route::get('/{username}/followers','UsersController@followers'); //post ??
 
 // Video 27: Controlador para el paso de mensajes
-//  Aqui tmbn hizo una agrupacion de middleware()
+//  Aqui tmbn hizo una agrupacion* de middleware() | * Route::Group(['middleware'=> 'auth], function(){Aqui las rutas});
 Route::post('/{username}/dms','UsersController@sendPrivateMessage')->middleware('auth');
 Route::get('/conversations/{conversation}','UsersController@showConversation')->middleware('auth');
 

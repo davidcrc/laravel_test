@@ -166,6 +166,12 @@ Comandos make:
 
         --- Problema: en la vista conversation.blade.php  la variable: $message->user->name , no se porque $message o.O
 
+    // Video 28: Garantizar q solo se crea una conversacion al inicio, luego los nuevos van a la primera conversacion entre los usuarios X e Y
+        Añadida Conversation-static function between() , obtiene una conversacion si existe , sino la crea
+        Modificado UserController sendPrivateMessage() , ahora pregunta si existe conversation en funcion between()
+        --- AUN ESTA PENDIENTE EL INPUT DEL MENSAJE , DA ERROR CUANDO ESTA VACIO
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
