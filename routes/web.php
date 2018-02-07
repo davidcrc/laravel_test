@@ -53,3 +53,5 @@ Route::get('/{username}/followers','UsersController@followers'); //post ??
 Route::post('/{username}/dms','UsersController@sendPrivateMessage')->middleware('auth');
 Route::get('/conversations/{conversation}','UsersController@showConversation')->middleware('auth');
 
+// Video 37: Rutas para mostrar las respuestas a los mensajes
+Route::get('/api/messages/{message}/responses','MessagesController@responses');

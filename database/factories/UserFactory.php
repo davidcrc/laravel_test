@@ -34,3 +34,12 @@ $factory->define(App\Message::class, function (Faker $faker) {
         'updated_at' => $faker->dateTimeThisDecade,        
     ];
 });
+
+//  Video 37: para crear respuestas 
+$factory->define(App\Response::class, function (Faker $faker) {
+    return [
+        'message' => $faker->words(3, true),         // 3 palabras
+        'created_at' => $faker->dateTimeThisYear,
+        'updated_at' => $faker->dateTimeThisYear,        
+    ];
+});

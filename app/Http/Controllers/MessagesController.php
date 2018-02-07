@@ -67,4 +67,9 @@ class MessagesController extends Controller
         ]);
     }
     
+    // Video 37: Devuelve un JSON, con sus respuestas
+    public function responses(Message $message)
+    {
+        return $message->responses;
+    }
 }

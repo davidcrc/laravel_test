@@ -46,5 +46,12 @@ class Message extends Model
 
         return $this->toArray();        // devuelve los usuarios encontrados, ahpora tmbn usuarios tiene indice!!
     }
+
+    // Video 37: Un mensaje tiene relacion con una respuesta
+    public function responses()
+    {
+        // return $this->hasMany(Response::class)->orderBy('created_at', 'desc');   // o sino:
+        return $this->hasMany(Response::class)->latest();
+    }
     
 }

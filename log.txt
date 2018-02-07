@@ -259,6 +259,22 @@ Comandos make:
         - Para probar , se ingresaron los css y js desde mix() en la vista app.blade.php
         ---- AUN PERSISTE EL PROBLEMILLA DE LA BARRA TOP DE INICIO DE SESION 
 
+    // Video 37: Modealando un Api con Json , de respuestas a mensajes
+        - Crear un modelo , para las respuesta de mensajes:
+            php artisan make:model Response --migration
+            Añadimos los atributos de a la tabla...
+            php artisan migrate
+        - Se añade al Message.php una funcion responses() para relacionar un mensaje a respuesta(ss)
+        - Se crea un seed:
+            database\factories\UserFactory.php : Difinir un Response
+            database\seeds\DatabBaseSeeder.php : Modi por cada mensaje creara una respuesta
+        - Ejecutar : php artisan migrate:refresh --seed
+
+        - Crear la ruta para las respuestas :
+            /api/messages/{message}/responses
+        Se crea una funcion en el controlador : responses(), q devuelve las respuestas al mensaje
+
+
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
