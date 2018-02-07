@@ -8,14 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel DC') }}</title>
 
     
     <!-- Styles -->
     {{-- Video 08: anandido bootstrap  --}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    {{--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">  --}}
+    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">  --}}
+    
+    {{--  Video 36: utilizando bootstrap localmente  --}}
+    <link rel="stylesheet" href="{{mix('css/app.css')}} ">
 </head>
 <body>
     <div id="app" class="container" >
@@ -23,11 +25,12 @@
             <div class="container" >
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravel DC') }}
                     {{--  Laravel DC   --}}
                 </a> 
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                {{--  <div class="collapse navbar-collapse" id="app-navbar-collapse"> IDENTIFICADO EL PROBLEMA DE NAVEGACION!!! --}}
+                    <div class="nav navbar-collapse" >
                     <!-- Left Side Of Navbar - VIDEO 31: Buscador de mensajes--> 
                     <ul class="nav navbar-nav">
                         {{--  &nbsp;  --}}
@@ -81,10 +84,14 @@
 
     <!-- Scripts -->
     {{--  <script src="{{ asset('js/app.js') }}"></script>  --}}
-    {{--  Anandido en el video 16: autenticacion de usuarios  --}}
-    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    {{--  bootstrap - video 8  --}}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
+    {{--  Anandido en el video 16: autenticacion de usuarios  --}}
+    {{--  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>  --}}
+    
+    {{--  bootstrap - video 8  --}}
+    {{--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>  --}}
+    
+    {{--  Video 36: Quitado video8 y video 16  --}}
+    <script src="{{mix('js/app.js')}} "> </script>
 </body>
 </html>

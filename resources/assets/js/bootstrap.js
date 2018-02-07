@@ -9,8 +9,8 @@ window._ = require('lodash');
 
 try {
     window.$ = window.jQuery = require('jquery');
-
-    require('bootstrap-sass');
+    window.Tether = require('tether');      // Video 36
+    require('bootstrap');                   // Video 36
 } catch (e) {}
 
 /**

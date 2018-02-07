@@ -236,7 +236,28 @@ Comandos make:
         - Probamos InteractDB pa saber si se habria modificado la db
         --- La prueba de login no funciono por alguna razon :v -> seeIsAuthenticated()
 
-
+    // Video 36: Probando laravelMix, para tener compilado bootstrap localmente :v
+        Requisitios : npm -v ; node -v
+            npm install
+        - Compilar los assets desde terminal
+            npm run dev
+        Archivo package.json -> dev: Opcines de compilacion, watch: observar los archivos, Hot: --- , production: Compilacion mas completa con minificacion
+        Modificar el archivo package.json : "bootstrap": "^4.0.0", "tether": "^1.4.0",      //LE DEJE "bootstrap-sass": "^3.3.7",
+            npm install
+            npm run dev
+        --- borre el bootstrap-sass y salio un error, modifique: resources/assets/js/componnents/bootstrap.js :
+            window.Tether = require('tether');
+            require('bootstrap');
+        Correr de nuevo:
+            npm run dev
+            npm install --save popper.js                   
+        - si sale error : de assets , cambiar: resources/assets/sass/app.scss
+            @import "~bootstrap/scss/bootstrap";
+        - tambn borrar resources/assets/sass/_variables.scss
+            npm run dev             // debe compilar sin errores
+        
+        - Para probar , se ingresaron los css y js desde mix() en la vista app.blade.php
+        ---- AUN PERSISTE EL PROBLEMILLA DE LA BARRA TOP DE INICIO DE SESION 
 
 
 Configurar Base de datos:
