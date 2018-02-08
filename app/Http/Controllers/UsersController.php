@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Conversation;
 use App\PrivateMessage;
 use App\User;
+use App\Notifications\UserFollowed;         // para el envio de email por seguimiento
 use Illuminate\Http\Request;
 
 // Video 19: Mostar todos los mensajes de un usuario
@@ -40,7 +41,7 @@ class UsersController extends Controller
         ]);
     }
 
-    // Seguir a un usuario x
+    // $user es seguido por el usuario logueado
     public function follow($username, Request $request)
     {
         $user = $this->findByUsername($username);
@@ -48,6 +49,9 @@ class UsersController extends Controller
         $me = $request->user();             //usuario logueado
 
         $me->follows()->attach($user);      //agregue a $user
+
+        // Video 39: logueado sigue a $user, entonces quiero notificar a $user que $me lo esta siguiendo
+        $user->notify(new UserFollowed($me) );      
 
         return redirect("/$username")->withSuccess('Usuario seguido con Exito!!');
         

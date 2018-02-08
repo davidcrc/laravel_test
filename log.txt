@@ -283,6 +283,14 @@ Comandos make:
             Añadi un load('user') al controlador MessagesController
             Añadi a responses.vue : {{response.user.name}}
 
+    // Video 39: Crear una notificacion al usuario por Gmail, cuando lo siguen
+        php artisan make:notification UserFollowed
+        Deja en el constructor una variable global para datos de usuario
+        En el UsersController añadir $user->notify(new TUCLASENOTIFICABLE($user)) para notificaciones
+        Cambiar .env  el nombre de la aplicacion : APP_NAME
+
+
+
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
     - Conexion con Facebook, se añadio dos variables de entorno:
