@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 use Illuminate\Notifications\Messages\MailMessage;
 
 // Video 39: Creado clase para notificar cuando un usuario es seguido
@@ -36,7 +37,7 @@ class UserFollowed extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];        //al email y a la BD
+        return ['mail', 'database', 'broadcast'];        //al email , a la BD y al broadcast
     }
 
     /**
@@ -71,5 +72,13 @@ class UserFollowed extends Notification
             // Video 40: Guarda los datos del usuario q lo sigue 
             'follower' => $this->follower,
         ];
+    }
+
+    // Video 42: Agregar para que comparta por broadcast
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([                   // importar la clase!!!
+            'data' => $this->toArray($notifiable),     //toma lo q guarda para el broadcast
+        ]);
     }
 }

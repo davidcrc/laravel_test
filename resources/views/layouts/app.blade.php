@@ -57,11 +57,13 @@
                         @else
                             <!-- Video 41: Mostrar las notificaciones, solo cuando estas logueado -->
                             <li class="nav-item dropdown mr-2">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    Notificaciones <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Notificaciones ({{ Auth::user()->notifications->count()}}) <span class="caret"></span>
                                 </a>
-                                <!-- vid 41: Dejara un vue, que escuche en tiempo real las notificaciones -->
-                                <notifications :user="{{Auth::user()->id }} "> </notifications>
+                                
+                                    <!-- vid 41: Dejara un vue, que escuche en tiempo real las notificaciones -->
+                                    <notifications :user="{{Auth::user()->id }} "> </notifications>
+                                
                             </li>
 
                             <li class="nav-item dropdown">

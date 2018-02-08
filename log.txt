@@ -308,6 +308,30 @@ Comandos make:
         Añadir en UserController.php la funcion notifications(), que llama a notifications: devuelve las notificaciones del usuario
         --- PROBLEMA CON LOS MENUS , SE DESPLIEGAN SOLOS :V
 
+    // Video 42: Notificaciones en tiempo relacion , laravel broadcastin, laravel echo
+        - Instalar laravel echo y pusher-js, --save-dev: guarda en el package.json
+            npm install laravel-echo pusher-js --save-dev
+        - Tambien bajar las dependencias de pusher para php, permite conectar laravel con pusher
+            composer require pusher/pusher-php-server
+        Tener una cuenta en pusher.com y poner las credenciales en el .env
+        Las credenciales se cargaran en config\broadcasting.php, añadir en el .env => BROADCAST_DRIVER=pusher
+        En Resources\assets\js\bootstrap.js : Descomenar al final para usar echo y colocar la key y el cluster
+
+        - Modificar App\Notifications\UserFollowed.php para q haga broadcast: 
+            return ['mail', 'database', 'broadcast'];
+            Añadir toBroadcast() , para compartir al broadcast
+            
+        Modificar para que laravel echo escuche las notificaciones, Notifications.vue
+
+        Modificar en config\app.php al final descomentar el serviceprovider: broadcasting
+
+        ---- DESAFIO:
+            Muestre diferente,la leida de la no leida
+            Muestre cuantas notificaciones estan no leidas
+            Si hay muchas notificaciones , solo las ultimas
+        
+
+
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
@@ -333,3 +357,10 @@ Helps varios:
         use Laravel\Scout\Searchable;
         use Searchable;
     ***Posiaca: sudo apt-get install php-curl
+
+    Usar tinker para encontrar atributos de usuario
+        $user = App\User::find(4)                       // Buscar a un usuario
+        $user->notifications()                          // mostrar todas las notifiaciones
+        $user->notifications()->firts()->markAsRead()   // marcar la primera como leida
+        $user->unreadnotifications()                    // ver las no leidas
+        $user->notifications()->markAsRead()            // marcar todas
