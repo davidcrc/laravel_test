@@ -330,7 +330,72 @@ Comandos make:
             Muestre cuantas notificaciones estan no leidas
             Si hay muchas notificaciones , solo las ultimas
         
+    // Video 42: Llevando a Produccion en Heroku
+        Instalr heroku: heroku.com
+        Iniciar sesion en terminal : heroku login
+        Crear un proyecto : heroku create
+        Sino uso git : git init .
+        luego: heroku git:remote -a laravel-dc      // esto paso por q cambie el nombre a laravel-dc
+        Crear el archivo : Procfile , con :
+            web: vendor/bin/heroku-php-apache2 public/
+        Vamos a decirle a heroku q usamos , php y nodejs:
+            heroku buildpacks:add heroku/php
+            heroku buildpacks:add heroku/nodejs
+        Añadir package.json un nuevo script:
+            "heroku-postbuild": "npm run production"
+            - Y cambiar devdependencies por dependencies, (asegurarse q no haiga duplicados)
 
+        Asegurar el storage alineado con la parte publica, modificar composer.json:
+            Añadir a scripts: 
+            "compile": [
+                "php artisan migrate --force",
+                "php artisan storage:link"
+            ]
+
+        - Agregar variables de entrono a heroku:
+            heroku config:set APP_URL=http://laravel-dc.herokuapp.com
+
+        -- Ahora un primer commit: ( mejor nu sibir los archivos en public)
+            git add composer.json
+            git add package.json
+            git add Procfile
+
+            git commit -m "Empezando con heroku!!"
+
+            git push heroku master
+
+        ---- ANTES DEBI CREAR LA BD EN HEROKU !!!
+            heroku addons:create heroku-postgresql:hobby-dev
+        Preguntar a, heroku config: [DATABASE_URL: postgres:// $user : $pass @ $host : $port / $DB]
+            APP_URL:      http://laravel-dc.herokuapp.com
+            DATABASE_URL: postgres://sumtktaipiglnh:5b717c5a7cf66d206690e1160e2adaa9478e2474da0c7246e99118f75bca330c@ec2-54-243-59-122.compute-1.amazonaws.c
+                        om:5432/d3v8nrnhdofmt6
+
+        SETEANDO LAS VARIABLES DE entorno:
+            heroku config:set DB_CONNECTION=pgsql
+            heroku config:set DB_HOST=ec2-54-243-59-122.compute-1.amazonaws.com
+            heroku config:set DB_USERNAME=sumtktaipiglnh
+            heroku config:set DB_PASSWORD=5b717c5a7cf66d206690e1160e2adaa9478e2474da0c7246e99118f75bca330c
+            heroku config:set DB_DATABASE=d3v8nrnhdofmt6
+        PEDIR UNA KEY A artisan:
+            php artisan key:gen         // esa key pasarla a :
+            heroku config:set APP_KEY=base64:2cQf/Ygd2P7X31kQy8oWvUd3QcJ1RtD1JG3xnVj/A8A=
+
+        EL APP_LOG:
+            heroku config:set APP_LOG=errorlog
+            
+        Configurar algolia, para que se conecte a la BD y tmbn a algolia:
+            heroku config:set ALGOLIA_APP_ID=V9MQNPBV7D ALGOLIA_SECRET=d70c2ef7314d4e79ac4c44470bac1bfe SCOUT_PREFIX=production_
+
+        AHORA SIIII!!!! : git push heroku master
+
+        PA Abrir URL : heroku open
+
+        ---Heroku solo funciona con cloudstorage asiq la subida no sirve; QUIta la subida y deja solo en mesnajes
+            Para cloud , busca el articulo :V
+
+
+            
 
 
 Configurar Base de datos:
