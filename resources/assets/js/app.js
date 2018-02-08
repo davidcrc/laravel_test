@@ -19,6 +19,10 @@ window.Vue = require('vue');
 // Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('responses', require('./components/Responses.vue'));
 
+// Video 41: añadido a la lista, las notificaciones
+Vue.component('notifications', require('./components/Notifications.vue'));
+
+
 const app = new Vue({
     el: '#app'
 });

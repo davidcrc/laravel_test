@@ -55,3 +55,7 @@ Route::get('/conversations/{conversation}','UsersController@showConversation')->
 
 // Video 37: Rutas para mostrar las respuestas a los mensajes
 Route::get('/api/messages/{message}/responses','MessagesController@responses');
+
+// Video 41: Ruta para mostrar las notificaciones
+Route::get('/api/notifications','UsersController@notifications')->middleware('auth');
+

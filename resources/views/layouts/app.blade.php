@@ -49,13 +49,23 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav ml-auto">
+                        
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item" ><a class="nav-link" href="{{ route('login') }}">Entrar</a></li>
                             <li class="nav-item" ><a class="nav-link" href="{{ route('register') }}">Registrase</a></li>
                         @else
+                            <!-- Video 41: Mostrar las notificaciones, solo cuando estas logueado -->
+                            <li class="nav-item dropdown mr-2">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    Notificaciones <span class="caret"></span>
+                                </a>
+                                <!-- vid 41: Dejara un vue, que escuche en tiempo real las notificaciones -->
+                                <notifications :user="{{Auth::user()->id }} "> </notifications>
+                            </li>
+
                             <li class="nav-item dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 

@@ -297,7 +297,16 @@ Comandos make:
         - En UserFollowed, añadir en via(): ['mail', 'database'], ahora ya se guarda
 
         --- luego desde el frontend el usuario podra marcar las notificaciones como leidas
-        
+
+    // Video 41: Mostrar las notificaciones al usuario logueado
+        Añadir en app.blade.php , para mostrar las notificaciones, usando un componenete de vue
+        Crear en Resources\assets\js\components\Notifications.vue el componente
+        añadir a la lista app.js: Notifications
+        - Compilar los assets
+            npm run watch
+        Añadir la ruta que recibe las notifications: /api/notifications , al controlador UserController.php
+        Añadir en UserController.php la funcion notifications(), que llama a notifications: devuelve las notificaciones del usuario
+        --- PROBLEMA CON LOS MENUS , SE DESPLIEGAN SOLOS :V
 
 
 Configurar Base de datos:

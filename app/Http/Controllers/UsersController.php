@@ -125,5 +125,11 @@ class UsersController extends Controller
         // return User::where('username', $username)->first();
         return User::where('username', $username)->firstorFail();       // para recurso por URL
     }
+
+    // Video 41: Notificaciones al usuario logueado
+    public function notifications(Request $request)
+    {
+        return $request->user()->notifications;       // el id del usuario actual buscara sus notificaciones-> ya de laravel
+    }
     
 }
