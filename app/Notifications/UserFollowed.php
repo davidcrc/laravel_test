@@ -36,7 +36,7 @@ class UserFollowed extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];        //al email y a la BD
     }
 
     /**
@@ -65,10 +65,11 @@ class UserFollowed extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toArray($notifiable)
+    public function toArray($notifiable)        // puede guiardar datos en BD
     {
         return [
-            //
+            // Video 40: Guarda los datos del usuario q lo sigue 
+            'follower' => $this->follower,
         ];
     }
 }

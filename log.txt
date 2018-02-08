@@ -289,6 +289,15 @@ Comandos make:
         En el UsersController añadir $user->notify(new TUCLASENOTIFICABLE($user)) para notificaciones
         Cambiar .env  el nombre de la aplicacion : APP_NAME
 
+    // Video 40: Guarda en la BD las notificaciones enviadas por email
+        - Crear una migration para notificaciones, ojo solo la crea
+            php artisan notifications:table
+        Correr
+            php artisan migrate
+        - En UserFollowed, añadir en via(): ['mail', 'database'], ahora ya se guarda
+
+        --- luego desde el frontend el usuario podra marcar las notificaciones como leidas
+        
 
 
 Configurar Base de datos:

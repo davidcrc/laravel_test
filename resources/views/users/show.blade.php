@@ -4,11 +4,11 @@
     
     <h1> {{$user->name}} </h1>
     {{--  parte 2 - video 21  --}}
-    <a href="{{$user->username}}/follows" > 
-        Sigue a : <span class="badge badge-default" >  {{$user->follows->count()}} usuarios.</span>
+    <a href="{{$user->username}}/follows" class="btn btn-link"> 
+        Sigue a : <span class="badge badge-primary" >  {{$user->follows->count()}} usuarios.</span>
     </a>
-    <a href="{{$user->username}}/followers" > 
-        Seguidores : <span class="badge badge-default" >  {{$user->followers->count()}} usuarios.</span>
+    <a href="{{$user->username}}/followers" class="btn btn-link"> 
+        Seguidores : <span class="badge badge-primary" >  {{$user->followers->count()}} usuarios.</span>
     </a>    
 
 {{--  Video 21: Dejar de seguir a otro usuario  --}}
