@@ -70,6 +70,7 @@ class MessagesController extends Controller
     // Video 37: Devuelve un JSON, con sus respuestas
     public function responses(Message $message)
     {
-        return $message->responses;
+        // return $message->responses;        
+        return $message->responses->load('user');       //Mod vid 38: me gustaria , solo cargar el nombre de usuario
     }
 }

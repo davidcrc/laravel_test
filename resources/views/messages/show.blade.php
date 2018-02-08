@@ -11,6 +11,9 @@
     </p>  --}}
 
     @include('messages.message')
+
+    {{--  Video 38: Añadir un componente de Vue: Resources.assets.js.components  --}}
+    <responses :message="{{$message->id}}"></responses>
 @endsection
 
 @section('title')

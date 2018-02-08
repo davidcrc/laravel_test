@@ -274,7 +274,14 @@ Comandos make:
             /api/messages/{message}/responses
         Se crea una funcion en el controlador : responses(), q devuelve las respuestas al mensaje
 
+    //Video 38: Utilizando VueJS, se modelan componentes q se traeran ala vista con <response></>
+        Añadir un componente de Vue: Resources.assets.js.components.Responses.vuelve
+        añadir el componente a la lista de componentes: Resources.assets.js.app.js
+        Añadir en la vista <responses>          //parece q el nombre q se le dio en ...app.js
 
+        ---> Desafio: añadir a la persona q hizo el comentario: COMPLETADO
+            Añadi un load('user') al controlador MessagesController
+            Añadi a responses.vue : {{response.user.name}}
 
 Configurar Base de datos:
     Modificar el archivo .env con tu configuracion
